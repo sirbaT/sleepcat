@@ -10,7 +10,10 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EncodingUtils;
 import org.apache.http.util.EntityUtils;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * learning HttpClient api
@@ -39,7 +42,7 @@ public class HttpClientLearning<T> {
 
     private static ResponseHandler<String> getDefaultStringResponse() {
         return new ResponseHandler<String>() {
-            public String handleResponse(HttpResponse httpResponse) throws  IOException {
+            public String handleResponse(HttpResponse httpResponse) throws IOException {
                 int status = httpResponse.getStatusLine().getStatusCode();
                 if (status >= 200 && status < 300) {
                     HttpEntity entity = httpResponse.getEntity();
@@ -47,6 +50,29 @@ public class HttpClientLearning<T> {
                 } else {
                     throw new ClientProtocolException("Unexpected response status:" + status);
                 }
+            }
+        };
+    }
+
+    public static ResponseHandler<File> getFileResponse(final String fileLocation) {
+        return new ResponseHandler<File>() {
+            public File handleResponse(HttpResponse httpResponse) throws ClientProtocolException, IOException {
+                System.out.println("status:" + httpResponse.getStatusLine().getStatusCode());
+                HttpEntity entity = httpResponse.getEntity();
+                File file = new File(fileLocation);
+                if (entity != null) {
+                    InputStream is = entity.getContent();
+                    FileOutputStream fileOps = new FileOutputStream(file);
+                    int tempchar;
+                    while ((tempchar = is.read()) != -1) {
+                        fileOps.write(tempchar);
+                    }
+                    fileOps.flush();
+                    is.close();
+                    fileOps.close();
+
+                }
+                return file;
             }
         };
     }
