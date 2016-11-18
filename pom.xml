@@ -15,6 +15,7 @@
         <version.httpclient>4.5.2</version.httpclient>
         <version.mongo>3.3.0</version.mongo>
         <version.jetty>9.3.6.v20151106</version.jetty>
+        <version.junit>4.12</version.junit>
     </properties>
 
     <dependencies>
@@ -37,6 +38,12 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpmime</artifactId>
             <version>${version.httpclient}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${version.junit}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
