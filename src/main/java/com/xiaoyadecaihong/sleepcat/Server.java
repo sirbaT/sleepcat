@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Server {
     public static void main(String[] args) throws IOException {
         // System.out.println("First project on web");
-        HttpClientLearning learner = new HttpClientLearning();
+        HttpClientLearning<String> learner = new HttpClientLearning<String>();
         // System.out.println(learner.get("http://www.baidu.com"));
         System.out.println(learner.get("http://www.baidu.com", HttpClientLearning.DEFAULT_STRING_RESPONSE));
     }
