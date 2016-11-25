@@ -6,6 +6,9 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.config.AuthSchemes;
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.config.*;
 import org.apache.http.conn.DnsResolver;
 import org.apache.http.conn.HttpConnectionFactory;
@@ -30,8 +33,10 @@ import org.apache.http.message.BasicLineParser;
 import org.apache.http.message.LineParser;
 import org.apache.http.ssl.SSLContexts;
 import org.apache.http.util.CharArrayBuffer;
+import org.apache.http.util.EntityUtils;
 
 import javax.net.ssl.SSLContext;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.charset.CodingErrorAction;
@@ -44,7 +49,7 @@ import java.util.Arrays;
  * Created by yaguang.wang on 2016/11/24.
  */
 public class ClientConfiguration {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // 创建连接管理工厂 初始化成默认的Http 连接管理工厂
         HttpMessageParserFactory<HttpResponse> responseParserFactory = new DefaultHttpResponseParserFactory() {
             @Override
@@ -166,5 +171,48 @@ public class ClientConfiguration {
                 .setProxy(new HttpHost("myproxy", 8080))
                 .setDefaultRequestConfig(defaultRequestConfig)
                 .build();
+        try {
+            HttpGet httpget = new HttpGet("http://httpbin.org/get");
+            RequestConfig requestConfig = RequestConfig.copy(defaultRequestConfig)
+                    .setSocketTimeout(5000)
+                    .setConnectTimeout(5000)
+                    .setConnectionRequestTimeout(5000)
+                    .setProxy(new HttpHost("myotherproxy", 8080))
+                    .build();
+            httpget.setConfig(requestConfig);
+            HttpClientContext context = HttpClientContext.create();
+            context.setCookieStore(cookieStore);
+            context.setCredentialsProvider(credentialsProvider);
+            System.out.println("executing request" + httpget.getURI());
+            CloseableHttpResponse response = httpClient.execute(httpget, context);
+            try {
+                System.out.println("-------------------------------------");
+                System.out.println(response.getStatusLine());
+                System.out.println(EntityUtils.toString(response.getEntity()));
+                System.out.println("-------------------------------------");
+                // Once the request has been executed the local context can
+                // be used to examine updated state and various objects affected
+                // by the request execution.
+
+                // Last executed request
+                context.getRequest();
+                // Execution route
+                context.getHttpRoute();
+                // Target auth state
+                context.getTargetAuthState();
+                // Proxy auth state
+                context.getTargetAuthState();
+                // Cookie origin
+                context.getCookieOrigin();
+                // Cookie spec used
+                context.getCookieSpec();
+                // User security token
+                context.getUserToken();
+            } finally {
+                response.close();
+            }
+        } finally {
+            httpClient.close();
+        }
     }
 }
