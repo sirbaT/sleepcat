@@ -24,7 +24,7 @@ import org.apache.http.util.CharArrayBuffer;
  * 此示例演示如何自定义和配置最常见的HTTP请求执行和连接管理。
  * Created by yaguang.wang on 2016/11/24.
  */
-public class CkientConfiguration {
+public class ClientConfiguration {
     public static void main(String[] args) {
         // 创建连接管理工厂 初始化成默认的Http 连接管理工厂
         HttpMessageParserFactory<HttpResponse> responseParserFactory = new DefaultHttpResponseParserFactory() {
