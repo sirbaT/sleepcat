@@ -16,7 +16,7 @@ public class Server {
         // System.out.println(learner.get("http://www.baidu.com"));
         //System.out.println(learner.get("http://www.baidu.com", HttpClientLearning.DEFAULT_STRING_RESPONSE));
         HttpClientLearning<File>  fileLearner = new HttpClientLearning<File>();
-        File file = fileLearner.get("http://www.baidu.com",HttpClientLearning.getFileResponse("D:test.txt"));
+        File file = fileLearner.get("http://img3.3lian.com/2013/s2/65/d/38.jpg",HttpClientLearning.getFileResponse("38.jpg"));
         file.createNewFile();
         System.out.println(file.getName());
         System.out.println(file.getAbsolutePath());
