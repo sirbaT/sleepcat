@@ -16,6 +16,7 @@
         <version.mongo>3.3.0</version.mongo>
         <version.jetty>9.3.6.v20151106</version.jetty>
         <version.junit>4.12</version.junit>
+        <version.freemarker>2.3.25-incubating</version.freemarker>
     </properties>
 
     <dependencies>
@@ -44,6 +45,11 @@
             <artifactId>junit</artifactId>
             <version>${version.junit}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker-gae</artifactId>
+            <version>${version.freemarker}</version>
         </dependency>
     </dependencies>
 </project>
