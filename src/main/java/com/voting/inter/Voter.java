@@ -6,13 +6,13 @@ package com.voting.inter;
  */
 public interface Voter {
 
-    void joinTicketRecord(TicketRecord record);
+    boolean joinTicketRecord(TicketRecord record);
 
-    void quitTicketRecord();
+    boolean quitTicketRecord(TicketRecord record);
 
-    void voteRecord();
+    boolean voteRecord(TicketRecord record);
 
-    void restitutionTicket();
+    boolean restitutionTicket(TicketRecord record);
 
-    boolean checkResidueTicketCount();
+    boolean checkResidueTicketOver();
 }

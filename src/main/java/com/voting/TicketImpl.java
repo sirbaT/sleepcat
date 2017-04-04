@@ -16,7 +16,7 @@ public class TicketImpl implements Ticket {
     private final String id;
     private Voter voter;
 
-    TicketImpl() {
+    public TicketImpl() {
         id = UUID.randomUUID().toString();
     }
 

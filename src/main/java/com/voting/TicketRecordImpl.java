@@ -19,4 +19,19 @@ public class TicketRecordImpl implements TicketRecord {
     public Integer countTicket() {
         return tickets.size();
     }
+
+    @Override
+    public boolean acquisitionTicket() {
+        return false;
+    }
+
+    @Override
+    public boolean restitutionTicket() {
+        return false;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

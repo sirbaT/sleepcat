@@ -7,4 +7,8 @@ package com.voting.inter;
  */
 public interface TicketRecord {
     Integer countTicket();
+
+    boolean acquisitionTicket();
+
+    boolean restitutionTicket();
 }

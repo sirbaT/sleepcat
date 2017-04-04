@@ -21,27 +21,30 @@ public class VoterImpl implements Voter {
     private List<Ticket> tickets;
 
     @Override
-    public void joinTicketRecord(TicketRecord record) {
-        ticketRecord.add(record);
+    public boolean joinTicketRecord(TicketRecord record) {
+        return ticketRecord.add(record);
     }
 
     @Override
-    public void quitTicketRecord() {
-
+    public boolean quitTicketRecord(TicketRecord record) {
+        return ticketRecord.contains(record) && ticketRecord.remove(record);
     }
 
     @Override
-    public void voteRecord() {
-
+    public boolean voteRecord(TicketRecord record) {
+        if(ticketRecord.contains(record)){
+            //record.
+        }
+        return false;
     }
 
     @Override
-    public void restitutionTicket() {
-
+    public boolean restitutionTicket(TicketRecord record) {
+        return false;
     }
 
     @Override
-    public boolean checkResidueTicketCount() {
+    public boolean checkResidueTicketOver() {
         return false;
     }
 }
