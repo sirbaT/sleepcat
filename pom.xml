@@ -29,6 +29,7 @@
         <version.jetty>9.3.6.v20151106</version.jetty>
         <version.junit>4.12</version.junit>
         <version.freemarker>2.3.25-incubating</version.freemarker>
+        <druid-version>1.0.9</druid-version>
     </properties>
 
     <dependencies>
@@ -62,6 +63,11 @@
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker-gae</artifactId>
             <version>${version.freemarker}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid-version}</version>
         </dependency>
     </dependencies>
 </project>
