@@ -30,6 +30,8 @@
         <version.junit>4.12</version.junit>
         <version.freemarker>2.3.25-incubating</version.freemarker>
         <druid-version>1.0.9</druid-version>
+        <version.log4j-api>2.3</version.log4j-api>
+        <version.log4j-core>2.3</version.log4j-core>
     </properties>
 
     <dependencies>
@@ -68,6 +70,16 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>${druid-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${version.log4j-api}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${version.log4j-core}</version>
         </dependency>
     </dependencies>
 </project>
