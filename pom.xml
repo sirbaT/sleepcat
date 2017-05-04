@@ -32,6 +32,7 @@
         <druid-version>1.0.9</druid-version>
         <version.log4j-api>2.3</version.log4j-api>
         <version.log4j-core>2.3</version.log4j-core>
+        <version.jredis>2.9.0</version.jredis>
     </properties>
 
     <dependencies>
@@ -80,6 +81,12 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${version.log4j-core}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${version.jredis}</version>
         </dependency>
     </dependencies>
 </project>
