@@ -10,10 +10,9 @@ import redis.clients.jedis.Jedis;
 public class RedisClientTest {
     public static void main(String[] args) {
         try {
-            Jedis jedis = new Jedis("");
-            jedis.auth("");
+            Jedis jedis = new Jedis("192.168.99.100", 32768);
             jedis.set("myLover", "baiyajing");
-            System.out.println("my lover "+jedis.get("myLover"));
+            System.out.println("my lover " + jedis.get("myLover"));
         } catch (Exception ex) {
             ex.printStackTrace();
         }

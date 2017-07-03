@@ -13,8 +13,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -33,6 +33,7 @@
         <version.log4j-api>2.3</version.log4j-api>
         <version.log4j-core>2.3</version.log4j-core>
         <version.jredis>2.9.0</version.jredis>
+        <version.lombok>1.16.16</version.lombok>
     </properties>
 
     <dependencies>
@@ -55,6 +56,11 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpmime</artifactId>
             <version>${version.httpclient}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${version.lombok}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
