@@ -1,6 +1,5 @@
 package com.classloader;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -18,5 +17,6 @@ public class ClassLoaderTest {
         System.out.println(Arrays.toString(interfaces));
         Object o = aClass.newInstance();
         System.out.println(o.getClass());
+        System.out.println("Object的父类是：" + Object.class.getSuperclass());
     }
 }
