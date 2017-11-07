@@ -58,7 +58,7 @@ public class WeakHashMap implements Map {
     }
 
     public boolean equals(Object o) {
-        return false;
+        return o == this;
     }
 
     public int hashCode() {

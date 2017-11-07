@@ -7,7 +7,7 @@ package com.genericity.learn;
 public class DepotObject<T extends DepotAbled> {
     private String userName;
     private String key;
-    private DepotAbledFactory depotAbledFactory = new DepotAbledFactory(key);
+    private DepotAbledFactory depotAbledFactory ;
 
     public String getUserName() {
         return userName;
