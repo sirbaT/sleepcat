@@ -1,7 +1,8 @@
 package com.singleton;
 
 /**
- * Created by 37497 on 2017/7/30.
+ * Created by 37497
+ * on 2017/7/30.
  */
 public class TestDemo implements Runnable {
     public static void main(String[] args) {
